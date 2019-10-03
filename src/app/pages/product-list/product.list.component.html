@@ -1,0 +1,44 @@
+<h1 align="center" class="display-4 ">Products</h1>
+<a *ngIf="currentUser?.role == Role.Customer" style="color: inherit"
+   routerLink="/seller/product/new" class="float-right mb-3"><i class="fas fa-plus fa-2x">Add</i>
+</a>
+<table id="table" class="table table-striped text-center" style="width:100%;">
+    <thead>
+    <tr>
+        <th scope="col">Photo</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+        <th scope="col">Stock</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let productInfo of page">
+        <th class="align-middle" scope="row">
+            <img height="100px" src="{{productInfo.imageFile}}" alt="{{productInfo.titreProduit}}">
+        </th>
+
+        <td class="align-middle">{{productInfo.titreProduit}}</td>
+        <td class="align-middle">{{productInfo.descriptionProduit}}</td>
+        <td class="align-middle">{{CategoryType[productInfo.categoryType]}}</td>
+        <td class="align-middle">{{productInfo.prixProduit| currency}}</td>
+        <td class="align-middle">{{productInfo.productStock}}</td>
+        <td class="align-middle">{{ProductStatus[productInfo.productStatus]}}</td>
+        <td class="align-middle">
+            <a style="display: block" routerLink="/seller/product/{{productInfo.id}}/edit">
+                Edit</a>
+
+            <a *ngIf="currentUser?.role == Role.Customer" style="display: block"
+               (click)="deleteProduct(page, productInfo.id)" routerLink="./">
+                Remove</a>
+        </td>
+
+        <td class="align-middle">
+            <a style="display: block"(click)="deleteProduct()" routerLink="./">Remove</a>
+        </td>
+
+    </tbody>
+</table>
+

@@ -1,0 +1,51 @@
+<!-- Nav Start -->
+<nav class="navbar navbar-expand-lg navbar-light theme-nav fixed-top" [class.darkHeader]="darkHeader">
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="'/home/one'"><img src="assets/images/whateleganzparis.png" width="200px" alt="logo"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" (click)="isOpenMobile=!isOpenMobile">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse default-nav" id="navbarSupportedContent" [class.show]="isOpenMobile">
+      <ul class="navbar-nav ml-auto" id="mymenu">
+        <li class="nav-item">
+          <a class="nav-link" #home href="#home" (click)="active('home')" [ngClass]="{'active show': activeClass == 'home' }" [pageScrollOffset]="80" pageScroll>ACCUEIL</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about" (click)="active('about')" [ngClass]="{'active show': activeClass == 'about' }" [pageScrollOffset]="80" pageScroll>A PROPOS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#feature" (click)="active('feature')" [ngClass]="{'active show': activeClass == 'feature' }" [pageScrollOffset]="80" pageScroll>FONCTIONNALITÉ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="#screenshot" (click)="active('screenshot')" [ngClass]="{'active show': activeClass == 'screenshot' }" [pageScrollOffset]="80" pageScroll>SCREENSHOT</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="'/blog/left-sidebar'" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">BLOG</a>
+</li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#price" data-menuanchor="price" (click)="active('price')" [ngClass]="{'active show': activeClass == 'price' }" [pageScrollOffset]="80" pageScroll>PRIX</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact" data-menuanchor="contact" (click)="active('contact')" [ngClass]="{'active show': activeClass == 'contact' }" [pageScrollOffset]="80" pageScroll>NOUS CONTACTER</a>
+        </li>
+        <div ngbDropdown class="nav-item dropdown">
+          <button class="btn bg-transparent nav-link dropdown-toggle" id="dropdownMenuButton" ngbDropdownToggle>MON COMPTE</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownMenuButton" class="dropdown-menu">
+          <a class="nav-link" [routerLink]="'/pages/sign-in'">SE CONNECTER</a>
+          <a class="nav-link" [routerLink]="'/pages/sign-up'">S' INSCRIRE</a>
+          <a class="nav-link" (click)="logout()" [routerLink] = "'/pages/sign-in'" >DECONNEXION</a>
+          <!-- <a class="nav-link" [routerLink]="'/pages/forget-password'">MOT DE PASSE OUBLIÉ</a>
+          <a class="nav-link" [routerLink]="'/pages/thank-you'">MERCI!</a>
+          <a class="nav-link" [routerLink]="'/pages/review'" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">Review</a>
+          <a class="nav-link" [routerLink]="'/pages/404'">404</a>
+          <a class="nav-link" [routerLink]="'/pages/faq'" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">FAQ</a>
+          <a class="nav-link" [routerLink]="'/pages/download'">TÉLÉCHARGER</a> -->
+          </div>
+        </div>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Nav end-->
